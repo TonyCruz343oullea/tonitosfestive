@@ -13,7 +13,7 @@ $resultado = $conexion->query("SELECT * FROM `cartas` ORDER BY `fecha` DESC");
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilocarta.css">
+    <link rel="stylesheet" href="estilocarta.css">
     <style>
         .cartas-grid {
             display: grid;
