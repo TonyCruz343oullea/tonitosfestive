@@ -1,0 +1,78 @@
+<html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TonitosFestive</title>
+    <link rel="stylesheet" href="css/estiloIndex.css">
+</head>
+<body>
+
+    <div class="video-container">
+        <video autoplay muted loop playsinline id="bg-video">
+            <source src="videos/index.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="content-overlay">
+        <header class="top-section">
+         
+            <div class="countdown-container" id="countdown">00d 00h 00m 00s</div>
+
+            <h1>Informa a Santa con tu carta</h1>
+            <p>si te portaste bien esta asegurado tu regalo bajo tu arbol.</p>
+       
+        </header>
+
+        <main class="menu-container">
+            <a href="Jugeteria.html" class="btn">Juguetes disponibles en el almacen de santa</a>
+            <a href="carta.php" class="btn">Escribe tu carta a santa</a>
+            <a href="ListaDeseos.php" class="btn">Ve quien ya hizo su carta</a>
+            
+        </main>
+
+        <footer class="bottom-section">
+            <h2>Tonitos Festive</h2>
+            <h2>Pagina creada por Antonio de Jesus de la Cruz Irgoyen</h2>
+            <p></p>
+        </footer>
+    </div>
+
+    <script>
+       
+        const fechaObjetivo = new Date("2026-12-25T00:00:00").getTime();
+
+        const countdownElement = document.getElementById('countdown');
+
+        function actualizarContador() {
+            const ahora = new Date().getTime();
+            const distancia = fechaObjetivo - ahora;
+
+           
+            if (distancia < 0) {
+                countdownElement.textContent = "¡Llegó el momento, navidad a llegado!";
+                clearInterval(intervalo);
+                return;
+            }
+
+           
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+          
+            const txtDias = dias.toString().padStart(2, '0');
+            const txtHoras = horas.toString().padStart(2, '0');
+            const txtMinutos = minutos.toString().padStart(2, '0');
+            const txtSegundos = segundos.toString().padStart(2, '0');
+
+            countdownElement.textContent = `${txtDias}d ${txtHoras}h ${txtMinutos}m ${txtSegundos}s`;
+        }
+
+       
+        const intervalo = setInterval(actualizarContador, 1000);
+        actualizarContador();
+    </script>
+</body>
+</html>
